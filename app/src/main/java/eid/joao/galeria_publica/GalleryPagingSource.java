@@ -3,6 +3,7 @@ package eid.joao.galeria_publica;
 import android.widget.Gallery;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.paging.ListenableFuturePagingSource;
 import androidx.paging.PagingState;
 
@@ -14,8 +15,6 @@ import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
-
-import javax.annotation.Nullable;
 
 public class GalleryPagingSource extends ListenableFuturePagingSource<Integer, ImageData> {
     GalleryRepository galleryRepository;
