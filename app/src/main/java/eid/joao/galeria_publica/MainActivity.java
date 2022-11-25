@@ -3,6 +3,7 @@ package eid.joao.galeria_publica;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.Manifest;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    static int RESULT_REQUEST_PERMISSION = 2;
     BottomNavigationView bottomNavigationView;
 
     @Override
@@ -85,6 +87,13 @@ public class MainActivity extends AppCompatActivity {
                 bottomNavigationView.setSelectedItemId(navigationOpSelected);
             }
         }
+    }
+
+    private boolean hasPermission(String permission) {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return ActivityCompat.checkSelfPermission(MainActivity.this, permission) == PackageManager.PERMISSION_GRANTED;
+        }
+        return false;
     }
 
     @Override
