@@ -7,5 +7,6 @@
         android:title="Grid" />
     <item
         android:id="@+id/listViewOp"
+        android:icon="@drawable/ic_baseline_list_alt_24"
         android:title="Lista" />
 </menu>
